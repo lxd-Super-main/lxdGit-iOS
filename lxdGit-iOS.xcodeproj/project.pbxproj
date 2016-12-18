@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D09E6D8EC0EB68DB45BF6694 /* libPods-lxdGit-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C5F4D4BD5D4A7157A32482 /* libPods-lxdGit-iOS.a */; };
 		E573784B1E06B23300EF1F89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E573784A1E06B23300EF1F89 /* main.m */; };
 		E573784E1E06B23300EF1F89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E573784D1E06B23300EF1F89 /* AppDelegate.m */; };
 		E57378511E06B23300EF1F89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57378501E06B23300EF1F89 /* ViewController.m */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10C3CFCED32095C700B40EB2 /* Pods-lxdGit-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lxdGit-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lxdGit-iOS/Pods-lxdGit-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		A304B8E6D74170480CCF74E5 /* Pods-lxdGit-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lxdGit-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-lxdGit-iOS/Pods-lxdGit-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		B9C5F4D4BD5D4A7157A32482 /* libPods-lxdGit-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lxdGit-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57378461E06B23300EF1F89 /* lxdGit-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lxdGit-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E573784A1E06B23300EF1F89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E573784C1E06B23300EF1F89 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09E6D8EC0EB68DB45BF6694 /* libPods-lxdGit-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		856B78F7F3607A98E8B0DA95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9C5F4D4BD5D4A7157A32482 /* libPods-lxdGit-iOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A82EA0C2C0BBD2B0A4B3BD23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				10C3CFCED32095C700B40EB2 /* Pods-lxdGit-iOS.debug.xcconfig */,
+				A304B8E6D74170480CCF74E5 /* Pods-lxdGit-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E573783D1E06B23200EF1F89 = {
 			isa = PBXGroup;
 			children = (
 				E57378481E06B23300EF1F89 /* lxdGit-iOS */,
 				E57378471E06B23300EF1F89 /* Products */,
+				A82EA0C2C0BBD2B0A4B3BD23 /* Pods */,
+				856B78F7F3607A98E8B0DA95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E573785D1E06B23300EF1F89 /* Build configuration list for PBXNativeTarget "lxdGit-iOS" */;
 			buildPhases = (
+				68F77A94C055A194B85EF1FE /* 📦 Check Pods Manifest.lock */,
 				E57378421E06B23300EF1F89 /* Sources */,
 				E57378431E06B23300EF1F89 /* Frameworks */,
 				E57378441E06B23300EF1F89 /* Resources */,
+				EBD69634DA20FB9794F4F8AD /* 📦 Embed Pods Frameworks */,
+				DDBA4791FE34563ED52452E8 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68F77A94C055A194B85EF1FE /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DDBA4791FE34563ED52452E8 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lxdGit-iOS/Pods-lxdGit-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBD69634DA20FB9794F4F8AD /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lxdGit-iOS/Pods-lxdGit-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E57378421E06B23300EF1F89 /* Sources */ = {
@@ -260,6 +335,7 @@
 		};
 		E573785E1E06B23300EF1F89 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10C3CFCED32095C700B40EB2 /* Pods-lxdGit-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "lxdGit-iOS/Info.plist";
@@ -271,6 +347,7 @@
 		};
 		E573785F1E06B23300EF1F89 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A304B8E6D74170480CCF74E5 /* Pods-lxdGit-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "lxdGit-iOS/Info.plist";
